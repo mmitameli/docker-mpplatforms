@@ -12,6 +12,8 @@ mkdir $filepath/opencart
 (cd $filepath/opencart && unzip -q ${opencart_download##*/}) & showLoading "Extracting ${opencart_download##*/}"
 cp -rp $filepath/opencart/upload/* $src_path & showLoading "Coping files to src folder"
 rm -rf $filepath/opencart
+mv $src_path/config-dist.php $src_path/config.php
+mv $src_path/admin/config-dist.php $src_path/admin/config.php
 
 # Config docker environment
 bash $filepath/init
