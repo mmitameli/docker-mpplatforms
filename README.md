@@ -1,4 +1,4 @@
-# Mercado Pago Open Source Platforms Simple Installation
+# Mercado Pago Open Source Platforms Simple Installation (WIP)
 
 This is a repository that contains scripts to easily install open source e-commerce builders with mercadopago on a Docker environment.
 Supported platforms:
