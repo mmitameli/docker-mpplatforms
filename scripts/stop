@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+rootpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
+
+(cd $rootpath && docker-compose stop)
+(cd $rootpath && docker-sync stop)

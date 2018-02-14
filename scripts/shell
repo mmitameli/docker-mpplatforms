@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+filepath="$( cd "$(dirname "$0")" ; pwd -P )"
+source "$filepath/configs"
+
+if [ -z "$1" ]; then
+  (cd $filepath/.. && docker-compose exec --user www-data $app_container_name bash)
+else
+  (cd $filepath/.. && docker-compose exec --user $@ $app_container_name bash)
+fi

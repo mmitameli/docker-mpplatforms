@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+scriptspath="$( cd "$(dirname "$0")" ; pwd -P )/scripts"
+
+function helpme () {
+  echo "Wrong usage: //TODO: Show help"
+}
+
+function install_platform () {
+  if [ ! -z $1 ]; then
+    bash "$scriptspath/$1_installation"
+  else
+    helpme
+  fi
+}
+
+case $1 in
+  install)
+    install_platform $2
+    ;;
+  start)
+    bash "$scriptpath/start"
+    ;;
+  *)
+    helpme
+    ;;
+esac

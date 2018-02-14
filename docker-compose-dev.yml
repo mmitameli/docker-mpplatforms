@@ -1,0 +1,8 @@
+version: "2"
+services:
+  <app_container_name>:
+    volumes:
+      - <app_container_name>-sync:/var/www/html:nocopy
+volumes:
+  <app_container_name>-sync:
+    external: true

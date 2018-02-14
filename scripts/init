@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+rootpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
+
+source "$rootpath/scripts/configs"
+
+sudo chmod u+x $rootpath/*
+
+(sed -i '' -e "s/<app_container_name>/$app_container_name/g;s/<mysql_root_password>/$mysql_root_password/g;s/<mysql_database>/$mysql_database/g;s/<mysql_user>/$mysql_user/g;s/<mysql_password>/$mysql_password/g" $rootpath/docker-compose.yml && \
+sed -i '' -e "s/<app_container_name>/$app_container_name/g" $rootpath/docker-compose-dev.yml && \
+sed -i '' -e "s/<app_container_name>/$app_container_name/g" $rootpath/docker-sync.yml && \
+sed -i '' -e "s/<php_version>/$php_version/g" $rootpath/Dockerfile) & showLoading "Configuring docker environment"

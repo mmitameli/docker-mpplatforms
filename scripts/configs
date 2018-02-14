@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+# General
+php_version="7.0"
+
+# Just an animation to show loading dots while executing tasks
+showLoading() {
+  mypid=$!
+  loadingText=$1
+
+  echo -ne "$loadingText\r"
+
+  while kill -0 $mypid 2>/dev/null; do
+    echo -ne "$loadingText.\r"
+    sleep 0.5
+    echo -ne "$loadingText..\r"
+    sleep 0.5
+    echo -ne "$loadingText...\r"
+    sleep 0.5
+    echo -ne "\r\033[K"
+    echo -ne "$loadingText\r"
+    sleep 0.5
+  done
+
+  echo "$loadingText... DONE"
+}
+
+
+############################## Opencart ########################################
+# Files to opencart Change if you want another version
+# Access https://github.com/opencart/opencart/releases to find the available versions
+opencart_download="https://github.com/opencart/opencart/releases/download/2.3.0.2/2.3.0.2-compiled.zip"
+
+# Files to Mercado Pago Opencart module Change if you want another version
+# Access  to find the available versions
+opencart_mpmodule_download="https://github.com/mercadopago/cart-opencart/archive/master.zip"
+opencart_mpmodule_version="v2.3"
+
+# Docker Configurations
+app_container_name="opencart"
+mysql_root_password="root"
+mysql_database="opencartdb"
+mysql_user="opencartuser"
+mysql_password="opencartpass"
+
+################################################################################
