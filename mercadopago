@@ -18,7 +18,7 @@ case $1 in
     install_platform $2
     ;;
   start)
-    bash "$scriptpath/start"
+    bash "$scriptspath/start"
     ;;
   *)
     helpme
