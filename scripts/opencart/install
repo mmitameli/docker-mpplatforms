@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 filepath="$( cd "$(dirname "$0")" ; pwd -P )"
-src_path="$filepath/../src/"
+scriptspath="$filepath/.."
+srcpath="$scriptspath/../src"
 
-source "$filepath/configs"
+source "$scriptspath/configs"
 
 echo "Opencart installation. This may take a while!"
 
@@ -10,13 +11,13 @@ echo "Opencart installation. This may take a while!"
 mkdir $filepath/opencart
 (cd $filepath/opencart && wget -q $opencart_download) & showLoading "Downloading Opencart"
 (cd $filepath/opencart && unzip -q ${opencart_download##*/}) & showLoading "Extracting ${opencart_download##*/}"
-cp -rp $filepath/opencart/upload/* $src_path & showLoading "Coping files to src folder"
+cp -rp $filepath/opencart/upload/* $srcpath & showLoading "Coping files to src folder"
 rm -rf $filepath/opencart
-mv $src_path/config-dist.php $src_path/config.php
-mv $src_path/admin/config-dist.php $src_path/admin/config.php
+mv $srcpath/config-dist.php $srcpath/config.php
+mv $srcpath/admin/config-dist.php $srcpath/admin/config.php
 
 # Config docker environment
-bash $filepath/init
+bash $scriptspath/init
 
 # Installing MercadoPago plugin
 
@@ -27,7 +28,7 @@ mkdir $filepath/mp_opencart
 (cd $filepath/mp_opencart && unzip -q $filename) & showLoading "Extracting $entry"
 
 # Copy files to src folder
-(cp -R $filepath/mp_opencart/cart-opencart-`echo "$filename" | cut -d'.' -f1`/$opencart_mpmodule_version/* $src_path) & showLoading "Coping mp module files to src folder"
+(cp -R $filepath/mp_opencart/cart-opencart-`echo "$filename" | cut -d'.' -f1`/$opencart_mpmodule_version/* $srcpath) & showLoading "Coping mp module files to src folder"
 rm -rf $filepath/mp_opencart
 
-bash $filepath/start_build
+bash $scriptspath/start_build

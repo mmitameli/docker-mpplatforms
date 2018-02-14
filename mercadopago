@@ -7,7 +7,7 @@ function helpme () {
 
 function install_platform () {
   if [ ! -z $1 ]; then
-    bash "$scriptspath/$1_installation"
+    bash "$scriptspath/$1/install"
   else
     helpme
   fi
@@ -18,7 +18,7 @@ case $1 in
     install_platform $2
     ;;
   start)
-    bash "$scriptspath/start"
+    bash "$scriptspath/start_build"
     ;;
   *)
     helpme
