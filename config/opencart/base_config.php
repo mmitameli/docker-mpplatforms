@@ -22,7 +22,7 @@ define('DIR_UPLOAD', '/var/www/html/system/storage/upload/');
 define('DB_DRIVER', 'mysqli');
 define('DB_HOSTNAME', 'db');
 define('DB_USERNAME', '<mysql_user>');
-define('DB_PASSWORD', '<mysql_pass>');
+define('DB_PASSWORD', '<mysql_password>');
 define('DB_DATABASE', '<mysql_database>');
 define('DB_PORT', '3306');
 define('DB_PREFIX', 'oc_');
