@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-rootpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
-
-(cd $rootpath && docker-compose exec --user www-data apache composer $@)

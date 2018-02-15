@@ -6,7 +6,9 @@ Supported platforms:
 
 For all platforms, change `scripts/configs` file to setup the variables that will be used on your environment accordingly to the platform and versions that you want to install.
 
-## Opencart
+## Platforms
+
+### Opencart
 
 To install Opencart with [Mercado Pago cart](https://github.com/mercadopago/cart-opencart) run:
 
@@ -41,3 +43,19 @@ You can change any of those data if you want. If you've changed `scripts/configs
 After finish the installation remove the install folder from your container. You can `./mercadopago wrapup opencart` to do so.
 
 Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/opencart/)
+
+## List of commands
+
+On this project root there is a file called `mercadopago` it is a "CLI" to several commands. All listed commands bellow has the format `./mercadopago <CMD> <ARGS>`.
+
+| CMD | ARGS | Description |
+|-|-|-|
+| install | `<platform name>` | Installs the platform passed as parameter|
+| init | - | Prepare docker files `docker-compose-dev.yml`, `docker-compose.yml`, `docker-sync.yml` adn `Dockerfile` according with configurations made on `/scripts/configs` |
+| kill | - | Do the same as `stop` and remove stopped containers and clean up `docker-sync` |
+| restart | - | Executes `stop` followed by `start` |
+| shell | `<user>` (optional) | Access the apache container via bash inside `/var/www/html` folder. |
+| start | - | Starts `docker-sync` and `docker-compose` containers without building `Dockerfile` |
+| start_build | - | Starts `docker-sync` and `docker-compose` containers building `Dockerfile` |
+| stop | - | Stops `docker-sync` and `docker-compose` containers |
+| wrapup | `<platform name>` | After installing some platforms will need to wrap up the installation. This command do all the job needed after installing it. |
