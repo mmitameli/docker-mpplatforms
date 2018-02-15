@@ -17,14 +17,6 @@ rm -rf $filepath/opencart
 # Config docker environment
 bash $scriptspath/init
 
-# Config opencart installation
-(rm $srcpath/config-dist.php && \
- rm $srcpath/admin/config-dist.php && \
- cp $scriptspath/../config/opencart/base_config.php $srcpath/config.php && \
- cp $scriptspath/../config/opencart/admin_config.php $srcpath/admin/config.php && \
- sed -i '' -e "s/<mysql_database>/$mysql_database/g;s/<mysql_user>/$mysql_user/g;s/<mysql_password>/$mysql_password/g" $srcpath/config.php && \
- sed -i '' -e "s/<mysql_database>/$mysql_database/g;s/<mysql_user>/$mysql_user/g;s/<mysql_password>/$mysql_password/g" $srcpath/admin/config.php) & showLoading "Coping config files"
-
 # Installing MercadoPago plugin
 
 # Download and extract mp plugin

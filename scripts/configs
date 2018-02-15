@@ -3,6 +3,13 @@
 # General
 php_version="7.0"
 
+# Docker Configurations - Change according with your platform. Any values are accepted
+app_container_name="opencart"
+mysql_root_password="root"
+mysql_database="opencartdb"
+mysql_user="opencartuser"
+mysql_password="opencartpass"
+
 # Just an animation to show loading dots while executing tasks
 showLoading() {
   mypid=$!
@@ -35,12 +42,5 @@ opencart_download="https://github.com/opencart/opencart/releases/download/2.3.0.
 # Access  to find the available versions
 opencart_mpmodule_download="https://github.com/mercadopago/cart-opencart/archive/master.zip"
 opencart_mpmodule_version="v2.3"
-
-# Docker Configurations
-app_container_name="opencart"
-mysql_root_password="root"
-mysql_database="opencartdb"
-mysql_user="opencartuser"
-mysql_password="opencartpass"
 
 ################################################################################
