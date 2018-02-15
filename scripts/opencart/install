@@ -25,9 +25,6 @@ bash $scriptspath/init
  sed -i '' -e "s/<mysql_database>/$mysql_database/g;s/<mysql_user>/$mysql_user/g;s/<mysql_password>/$mysql_password/g" $srcpath/config.php && \
  sed -i '' -e "s/<mysql_database>/$mysql_database/g;s/<mysql_user>/$mysql_user/g;s/<mysql_password>/$mysql_password/g" $srcpath/admin/config.php) & showLoading "Coping config files"
 
-# Remove install folder
-(rm -rf $srcpath/install) & showLoading "Removing install folder"
-
 # Installing MercadoPago plugin
 
 # Download and extract mp plugin
