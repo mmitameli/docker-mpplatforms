@@ -13,14 +13,24 @@ function install_platform () {
   fi
 }
 
+function run_command () {
+  list="$(ls $scriptspath)"
+  if [ ! -z $1 ]; then
+    [[ $list =~ (^|[[:space:]])$1($|[[:space:]]) ]] && run_script $1 || helpme
+  else
+    helpme
+  fi
+}
+
+function run_script () {
+  bash "$scriptspath/$1"
+}
+
 case $1 in
   install)
     install_platform $2
     ;;
-  start)
-    bash "$scriptspath/start_build"
-    ;;
   *)
-    helpme
+    run_command $1
     ;;
 esac
