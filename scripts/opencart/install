@@ -34,7 +34,7 @@ bash $scriptspath/init
 filename="${opencart_mpmodule_download##*/}"
 mkdir $filepath/mp_opencart
 (cd $filepath/mp_opencart && wget -q $opencart_mpmodule_download) & showLoading "Downloading MercadoPago Module"
-(cd $filepath/mp_opencart && unzip -q $filename) & showLoading "Extracting $entry"
+(cd $filepath/mp_opencart && unzip -q $filename) & showLoading "Extracting $filename"
 
 # Copy files to src folder
 (cp -R $filepath/mp_opencart/cart-opencart-`echo "$filename" | cut -d'.' -f1`/$opencart_mpmodule_version/* $srcpath) & showLoading "Coping mp module files to src folder"
