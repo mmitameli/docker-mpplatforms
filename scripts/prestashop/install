@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+filepath="$( cd "$(dirname "$0")" ; pwd -P )"
+scriptspath="$filepath/.."
+srcpath="$scriptspath/../src"
+
+source "$scriptspath/configs"
+
+echo "Prestashop installation. This may take a while!"
+
+# Download and copy Prestashop files to src directory
+mkdir $filepath/prestashop
+(cd $filepath/prestashop && wget -q $prestashop_download) & showLoading "Downloading Prestashop"
+(cd $filepath/prestashop && unzip -q ${prestashop_download##*/}) & showLoading "Extracting ${prestashop_download##*/}"
+cp -rp $filepath/prestashop/upload/* $srcpath & showLoading "Coping files to src folder"
+rm -rf $filepath/prestashop
+
+# Config docker environment
+bash $scriptspath/init
+
+# Installing MercadoPago plugin
+
+# Download and extract mp plugin
+filename="${prestashop_mpmodule_download##*/}"
+mkdir $filepath/mp_prestashop
+(cd $filepath/mp_prestashop && wget -q $prestashop_mpmodule_download) & showLoading "Downloading MercadoPago Module"
+(cd $filepath/mp_prestashop && unzip -q $filename) & showLoading "Extracting $filename"
+
+# Copy files to src folder
+(cp -R $filepath/mp_prestashop/cart-prestashop-`echo "$filename" | cut -d'.' -f1`/$prestashop_mpmodule_version/* $srcpath/modules && \
+ rm $srcpath/modules/mercadopago.zip) & showLoading "Coping mp module files to src folder"
+rm -rf $filepath/mp_prestashop
+
+bash $scriptspath/start_build

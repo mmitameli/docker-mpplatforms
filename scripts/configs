@@ -4,11 +4,23 @@
 php_version="7.0"
 
 # Docker Configurations - Change according with your platform. Any values are accepted
-app_container_name="opencart"
+#################### Opencart #########################
+# Uncomment to install opencart and comment the others
+# app_container_name="opencart"
+# mysql_root_password="root"
+# mysql_database="opencartdb"
+# mysql_user="opencartuser"
+# mysql_password="opencartpass"
+#######################################################
+
+#################### Prestashop #########################
+# Uncomment to install prestashop and comment the others
+app_container_name="prestashop"
 mysql_root_password="root"
-mysql_database="opencartdb"
-mysql_user="opencartuser"
-mysql_password="opencartpass"
+mysql_database="prestashopdb"
+mysql_user="prestashopuser"
+mysql_password="prestashoppass"
+#######################################################
 
 # Just an animation to show loading dots while executing tasks
 showLoading() {
@@ -42,5 +54,18 @@ opencart_download="https://github.com/opencart/opencart/releases/download/2.3.0.
 # Access  to find the available versions
 opencart_mpmodule_download="https://github.com/mercadopago/cart-opencart/archive/master.zip"
 opencart_mpmodule_version="v2.3"
+
+################################################################################
+
+
+############################## Prestashop ########################################
+# Files to opencart Change if you want another version
+# Access https://github.com/opencart/opencart/releases to find the available versions
+prestashop_download="https://github.com/PrestaShop/PrestaShop/releases/download/1.6.1.18/prestashop_1.6.1.18.zip"
+
+# Files to Mercado Pago Prestashop module Change if you want another version
+# Access  to find the available versions
+prestashop_mpmodule_download="https://github.com/mercadopago/cart-prestashop/archive/master.zip"
+prestashop_mpmodule_version="v1.6.x"
 
 ################################################################################
