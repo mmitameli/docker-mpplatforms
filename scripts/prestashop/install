@@ -11,7 +11,7 @@ echo "Prestashop installation. This may take a while!"
 mkdir $filepath/prestashop
 (cd $filepath/prestashop && wget -q $prestashop_download) & showLoading "Downloading Prestashop"
 (cd $filepath/prestashop && unzip -q ${prestashop_download##*/}) & showLoading "Extracting ${prestashop_download##*/}"
-cp -rp $filepath/prestashop/upload/* $srcpath & showLoading "Coping files to src folder"
+cp -rp $filepath/prestashop/prestashop/* $srcpath & showLoading "Coping files to src folder"
 rm -rf $filepath/prestashop
 
 # Config docker environment
