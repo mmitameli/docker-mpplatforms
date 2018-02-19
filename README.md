@@ -52,11 +52,21 @@ To install Prestashop with [Mercado Pago cart](https://github.com/mercadopago/ca
 
 `./mercadopago install prestashop`
 
-Open a browser and go to `localhost`. Follow the installation steps.
+Open a browser and go to `localhost`. Follow the instructions on screen.
 
+On System Configuration fill the fields according to the table
 
+|Field | Data |
+|-|-|
+| Database server address | db |
+| Database name | prestashopdb |
+| Database login | prestashopuser |
+| Database password | prestashoppass |
+| Tables Prefix | ps_ |
 
-After finish the installation remove the install folder from your container. You can `./mercadopago wrapup prestashop` to do so.
+Notice that these credentials are configured on `scripts/prestashop/configs`, if you've changed these configs on the file, make sure to configure the same way on System Configuration.
+
+After finishing the installation remove the install folder from your container. You can `./mercadopago wrapup prestashop` to do so.
 
 Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/prestashop/)
 
@@ -67,8 +77,6 @@ To install Woocommerce with [Mercado Pago cart](https://github.com/mercadopago/c
 `./mercadopago install woocommerce`
 
 Open a browser and go to `localhost`. Follow the installation steps.
-
-<!-- TODO: Add configuration explanation -->
 
 Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/woocommerce/)
 
