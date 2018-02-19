@@ -3,8 +3,10 @@
 This is a repository that contains scripts to easily install open source e-commerce builders with mercadopago on a Docker environment.
 Supported platforms:
 - Opencart;
+- Prestashop;
+- Woocommerce
 
-For all platforms, change `scripts/configs` file to setup the variables that will be used on your environment accordingly to the platform and versions that you want to install.
+For all platforms, change `scripts/{platform}/configs` file to setup the variables that will be used on your environment accordingly to the platform and versions that you want to install. Where platform is the platform that you want to install.
 
 ## Platforms
 
@@ -43,6 +45,32 @@ You can change any of those data if you want. If you've changed `scripts/configs
 After finish the installation remove the install folder from your container. You can `./mercadopago wrapup opencart` to do so.
 
 Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/opencart/)
+
+### Prestashop
+
+To install Prestashop with [Mercado Pago cart](https://github.com/mercadopago/cart-prestashop) run:
+
+`./mercadopago install prestashop`
+
+Open a browser and go to `localhost`. Follow the installation steps.
+
+
+
+After finish the installation remove the install folder from your container. You can `./mercadopago wrapup prestashop` to do so.
+
+Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/prestashop/)
+
+### Woocommerce
+
+To install Woocommerce with [Mercado Pago cart](https://github.com/mercadopago/cart-woocommerce) run:
+
+`./mercadopago install woocommerce`
+
+Open a browser and go to `localhost`. Follow the installation steps.
+
+<!-- TODO: Add configuration explanation -->
+
+Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/woocommerce/)
 
 ## List of commands
 

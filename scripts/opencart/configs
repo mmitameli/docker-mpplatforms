@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# General
+php_version="7.0"
+
+# Docker Configurations - Any values are accepted
+export app_container_name="opencart"
+export mysql_root_password="root"
+export mysql_database="opencartdb"
+export mysql_user="opencartuser"
+export mysql_password="opencartpass"
+
+# Files to opencart Change if you want another version
+# Access https://github.com/opencart/opencart/releases to find the available versions
+opencart_download="https://github.com/opencart/opencart/releases/download/2.3.0.2/2.3.0.2-compiled.zip"
+
+# Files to Mercado Pago Opencart module Change if you want another version
+# Access  to find the available versions
+opencart_mpmodule_download="https://github.com/mercadopago/cart-opencart/archive/master.zip"
+opencart_mpmodule_version="v2.3"

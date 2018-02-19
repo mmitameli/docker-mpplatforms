@@ -3,7 +3,8 @@ filepath="$( cd "$(dirname "$0")" ; pwd -P )"
 scriptspath="$filepath/.."
 srcpath="$scriptspath/../src"
 
-source "$scriptspath/configs"
+source "$filepath/configs"
+source "$scriptspath/loadingfun"
 
 echo "Prestashop installation. This may take a while!"
 

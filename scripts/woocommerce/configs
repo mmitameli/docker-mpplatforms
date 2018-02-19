@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# General
+php_version="7.0"
+
+# Docker Configurations - Any values are accepted
+export app_container_name="wordpress"
+export mysql_root_password="root"
+export mysql_database="wordpressdb"
+export mysql_user="wordpressuser"
+export mysql_password="wordpresspass"
+
+############################## Woocommerce #####################################
+# In order to install woocommerce, we need to install wordpress
+# If you want to change wordpress version change the download link below.
+# Access https://wordpress.org/ to find more about wordpress
+wordpress_download="https://wordpress.org/latest.zip"
+woocommerce_download="https://downloads.wordpress.org/plugin/woocommerce.3.3.1.zip"
+woocommerce_mpmodule_download="https://github.com/mercadopago/cart-woocommerce/archive/master.zip"
+################################################################################

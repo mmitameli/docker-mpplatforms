@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# General
+php_version="7.0"
+
+# Docker Configurations - Any values are accepted
+
+export app_container_name="prestashop"
+export mysql_root_password="root"
+export mysql_database="prestashopdb"
+export mysql_user="prestashopuser"
+export mysql_password="prestashoppass"
+
+# Files to prestashop Change if you want another version
+# Access https://github.com/PrestaShop/PrestaShop/releases to find the available versions
+prestashop_download="https://github.com/PrestaShop/PrestaShop/releases/download/1.6.1.18/prestashop_1.6.1.18.zip"
+
+# Files to Mercado Pago Prestashop module Change if you want another version
+# Access  to find the available versions
+prestashop_mpmodule_download="https://github.com/mercadopago/cart-prestashop/archive/master.zip"
+prestashop_mpmodule_version="v1.6.x"

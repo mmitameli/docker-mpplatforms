@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Just an animation to show loading dots while executing tasks
+showLoading() {
+  mypid=$!
+  loadingText=$1
+
+  echo -ne "$loadingText\r"
+
+  while kill -0 $mypid 2>/dev/null; do
+    echo -ne "$loadingText.\r"
+    sleep 0.5
+    echo -ne "$loadingText..\r"
+    sleep 0.5
+    echo -ne "$loadingText...\r"
+    sleep 0.5
+    echo -ne "\r\033[K"
+    echo -ne "$loadingText\r"
+    sleep 0.5
+  done
+
+  echo "$loadingText... DONE"
+}

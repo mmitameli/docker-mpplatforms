@@ -2,7 +2,7 @@
 
 rootpath="$( cd "$(dirname "$0")" ; pwd -P )/.."
 
-source "$rootpath/scripts/configs"
+source "$rootpath/scripts/loadingfun"
 
 sudo chmod u+x $rootpath/*
 
