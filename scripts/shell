@@ -3,7 +3,7 @@
 filepath="$( cd "$(dirname "$0")" ; pwd -P )"
 
 if [ -z "$1" ]; then
-  (cd $filepath/.. && docker-compose exec --user www-data $app_container_name bash)
+  (cd $filepath/.. && docker-compose exec --user www-data apache bash)
 else
-  (cd $filepath/.. && docker-compose exec --user $@ $app_container_name bash)
+  (cd $filepath/.. && docker-compose exec --user $@ apache bash)
 fi

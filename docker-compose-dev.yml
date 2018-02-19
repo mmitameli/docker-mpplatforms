@@ -1,6 +1,6 @@
 version: "2"
 services:
-  <app_container_name>:
+  apache:
     volumes:
       - <app_container_name>-sync:/var/www/html:nocopy
 volumes:

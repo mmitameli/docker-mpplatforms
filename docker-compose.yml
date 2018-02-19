@@ -1,6 +1,6 @@
 version: '2'
 services:
-  <app_container_name>:
+  apache:
     build: .
     ports:
       - "80:80" # web
