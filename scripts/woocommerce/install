@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+filepath="$( cd "$(dirname "$0")" ; pwd -P )"
+scriptspath="$filepath/.."
+srcpath="$scriptspath/../src"
+
+source "$scriptspath/configs"
+
+echo "Wordpress installation. This may take a while!"
+
+# Installing Base for the plugin
+
+# Download & Extract Wordpress files
+mkdir $filepath/wordpress
+(cd $filepath/wordpress && wget -q $wordpress_download) & showLoading "Downloading Wordpress"
+(cd $filepath/wordpress && unzip -q ${wordpress_download##*/}) & showLoading "Extracting ${wordpress_download##*/}"
+
+# Copy Wordpress files to src directory
+cp -rp $filepath/wordpress/wordpress/* $srcpath & showLoading "Coping files to src folder"
+rm -rf $filepath/wordpress
+
+# Download & Extract Woocommerce files
+filename="${woocoomerce_download##*/}"
+mkdir $filepath/woocoomerce
+(cd $filepath/woocoomerce && wget -q $woocoomerce_download) & showLoading "Downloading Woocommerce"
+(cd $filepath/woocoomerce && unzip -q $filename) & showLoading "Extracting $filename"
+
+# Copy files to mp-content/plugins directory
+(mv $filepath/woocoomerce/`echo "$filename" | cut -d'.' -f1` $srcpath/mp-content/plugins/woocommerce) & showLoading "Coping woocommerce files to mp-content/plugins folder"
+rm -rf $filepath/woocoomerce
+
+# Installing MercadoPago plugin
+
+# Download & Extract mp plugin
+filename2="${woocommerce_mpmodule_download##*/}"
+mkdir $filepath/mp_woocommerce
+(cd $filepath/mp_woocommerce && wget -q $woocommerce_mpmodule_download) & showLoading "Downloading MercadoPago Module"
+(cd $filepath/mp_woocommerce && unzip -q $filename2) & showLoading "Extracting $filename2"
+
+# Copy files to mp-content/plugins directory
+(mv $filepath/mp_woocommerce/cart-woocommerce-`echo "$filename2" | cut -d'.' -f1` $srcpath/mp-content/plugins/woocommerce-mercadopago) & showLoading "Coping mp module files to src folder"
+rm -rf $filepath/mp_woocommerce
+
+
+# Initialize containers
+
+# Config docker environment
+bash $scriptspath/init
+
+# Initialize docker containers
+bash $scriptspath/start_build

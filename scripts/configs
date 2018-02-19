@@ -15,11 +15,20 @@ php_version="7.0"
 
 #################### Prestashop #########################
 # Uncomment to install prestashop and comment the others
-app_container_name="prestashop"
+# app_container_name="prestashop"
+# mysql_root_password="root"
+# mysql_database="prestashopdb"
+# mysql_user="prestashopuser"
+# mysql_password="prestashoppass"
+#######################################################
+
+#################### Woocommerce #########################
+# Uncomment to install wordpress and comment the others
+app_container_name="wordpress"
 mysql_root_password="root"
-mysql_database="prestashopdb"
-mysql_user="prestashopuser"
-mysql_password="prestashoppass"
+mysql_database="wordpressdb"
+mysql_user="wordpressuser"
+mysql_password="wordpresspass"
 #######################################################
 
 # Just an animation to show loading dots while executing tasks
@@ -68,4 +77,14 @@ prestashop_download="https://github.com/PrestaShop/PrestaShop/releases/download/
 prestashop_mpmodule_download="https://github.com/mercadopago/cart-prestashop/archive/master.zip"
 prestashop_mpmodule_version="v1.6.x"
 
+################################################################################
+
+############################## Woocommerce #####################################
+# In order to install woocommerce, we need to install wordpress
+# If you want to change wordpress version change the download link below.
+# Access https://wordpress.org/ to find more about wordpress
+wordpress_download="https://wordpress.org/latest.zip"
+
+woocommerce_download="https://downloads.wordpress.org/plugin/projects-by-woothemes.1.5.0.zip"
+woocommerce_mpmodule_download="https://github.com/mercadopago/cart-woocommerce/archive/master.zip"
 ################################################################################
