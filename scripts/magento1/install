@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+filepath="$( cd "$(dirname "$0")" ; pwd -P )"
+scriptspath="$filepath/.."
+srcpath="$scriptspath/../src"
+
+source "$filepath/configs"
+source "$scriptspath/loadingfun"
+
+echo "Magento installation. This may take a while!"
+
+# Copying inserting magento version to installation_script
+
+(cd $filepath && unzip -q magento-1.9.3.7.zip) & showLoading "Extracting magento-1.9.3.7.zip"
+(cp -r $filepath/magento/* $srcpath) & showLoading "Coping magento files to src path"
+(rm -rf $filepath/magento) & showLoading "Remove magento folder"
+
+# Config docker environment
+bash $scriptspath/init
+
+bash $scriptspath/start_build

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-filepath="$( cd "$(dirname "$0")" ; pwd -P )"
-scriptspath="$filepath/.."
-srcpath="$scriptspath/../src"
-
-rm -rf "$srcpath/install"

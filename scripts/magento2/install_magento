@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+(cd magento2 && composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition . ;)
+
+(cd magento2 && chmod u+w -R ./var ./vendor ./pub/static ./pub/media ./app/etc \
+&& chmod u+x ./bin/magento \
+&& php -f ./bin/magento setup:install --base-url=http://localhost/ \
+    --db-host=db \
+    --db-name=<mysql_database> \
+    --db-user=<mysql_user> \
+    --db-password=<mysql_password> \
+    --admin-firstname=<admin_firstname> \
+    --admin-lastname=<admin_lastname> \
+    --admin-email=<admin_email> \
+    --admin-user=<admin_user> \
+    --admin-password=<admin_password> \
+    --language=<language> \
+    --currency=<currency> \
+    --timezone=<timezone> \
+    --use-rewrites=1 \
+    --backend-frontname=<backend_frontname> \
+    --use-sample-data \
+&& mv ./app/etc/env.php ./app/etc/env.original.php;
+cp -rv /var/www/env.sample.php ./app/etc/env.php \
+&& php -f ./bin/magento indexer:set-mode schedule;
+cp ~/.composer/auth.json var/composer_home/auth.json \
+&& php -f ./bin/magento sampledata:deploy \
+&& php -f ./bin/magento setup:upgrade \
+&& php -f ./bin/magento indexer:reindex \
+&& php -f ./bin/magento cache:flush;
+mv package.json.sample package.json ; mv Gruntfile.js.sample Gruntfile.js;
+npm i;
+php -f ./bin/magento deploy:mode:set production \
+&& composer dump-autoload -o \
+&& clear)

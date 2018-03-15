@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# General
+php_version="7.0"
+
+# Docker Configurations - Any values are accepted
+
+export app_container_name="magento"
+export mysql_root_password="root"
+export mysql_database="magentodb"
+export mysql_user="magentouser"
+export mysql_password="magentopass"

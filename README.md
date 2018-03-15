@@ -80,6 +80,15 @@ Open a browser and go to `localhost`. Follow the installation steps.
 
 Now you are ready to configure MercadoPago module. Just follow the **Setup Mercado Pago** session on [developers guide for opencart](https://www.mercadopago.com.br/developers/pt/tools/modules/woocommerce/)
 
+## Magento1
+
+To install Magento with [Mercado Pago cart](https://github.com/mercadopago/cart-magento) run:
+
+`./mercadopago install magento1`
+
+In order to make Magento configuration, you will need to add the follo
+
+
 ## List of commands
 
 On this project root there is a file called `mercadopago` it is a "CLI" to several commands. All listed commands bellow has the format `./mercadopago <CMD> <ARGS>`.
