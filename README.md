@@ -4,7 +4,9 @@ This is a repository that contains scripts to easily install open source e-comme
 Supported platforms:
 - Opencart;
 - Prestashop;
-- Woocommerce
+- Woocommerce;
+- Magento 1.x;
+- Magento 2.x;
 
 For all platforms, change `scripts/{platform}/configs` file to setup the variables that will be used on your environment accordingly to the platform and versions that you want to install. Where platform is the platform that you want to install.
 
@@ -86,8 +88,11 @@ To install Magento with [Mercado Pago cart](https://github.com/mercadopago/cart-
 
 `./mercadopago install magento1`
 
-In order to make Magento configuration, you will need to add the follo
+## Magento2
 
+To install Magento with [Mercado Pago cart](https://github.com/mercadopago/cart-magento) run:
+
+`./mercadopago install magento2`
 
 ## List of commands
 
